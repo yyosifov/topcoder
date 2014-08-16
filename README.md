@@ -9,3 +9,8 @@ A list of the problems, with their category and relative complexity for me (very
 | Competition | Problem Name | Category | Complexity | Comments |
 | ----------- | ------------ | -------- | ---------- | -------- |
 | TODO | TODO | TODO | TODO | TODO |
+
+# algorithms
+
+- binary search
+  - srm 629, CandyMaking
