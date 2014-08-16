@@ -14,3 +14,6 @@ A list of the problems, with their category and relative complexity for me (very
 
 - binary search
   - srm 629, CandyMaking
+
+- greedy
+  - srm 629, RectangleCovering
