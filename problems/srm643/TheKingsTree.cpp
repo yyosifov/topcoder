@@ -11,7 +11,8 @@ class TheKingsTree {
 public:
         vector< vector<int> > v;
         vector< int > p;
-        int dp[64][64][64];
+    int dp[64][64][64];
+    int childDp[64][64][64];
     int treeSize[64];
         int n;
 
@@ -27,6 +28,10 @@ public:
 
         int res = -1, currentVert = v[vert][ind];
         int tsz = treeSize[currentVert];
+        if(childDp[currentVert][r][g] != -1) {
+            return childDp[currentVert][r][g];
+        }
+
         for(int i=0;i<=tsz;i++) {
             int splitRed = i, splitGreen = tsz - i;
 
@@ -40,7 +45,8 @@ public:
                 res = min(res, sum);
             }
         }
-            return res;
+
+        return childDp[currentVert][r][g] = res;
     }
 
     int solve(int vert, int r, int g) {
@@ -69,7 +75,7 @@ public:
             v.resize(n);
 
             FOR(i, 64) treeSize[i] = -1;
-            FOR(i, 64) FOR(j, 64) FOR(k, 64) dp[i][j][k] = -1;
+            FOR(i, 64) FOR(j, 64) FOR(k, 64) { dp[i][j][k] = -1; childDp[i][j][k] = -1; }
         FOR(i, parent.size()) v[parent[i]].push_back(i+1);
         FOR(i, n) calcTreeSize(i); // calc all treeSize[i];
     }
